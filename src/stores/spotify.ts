@@ -197,25 +197,6 @@ export const useSpotifyStore = defineStore('spotify', () => {
     }
   }
 
-  // Función de prueba para verificar el token
-  const testToken = async () => {
-    if (!accessToken.value) return false
-
-    try {
-      const response = await fetch('https://api.spotify.com/v1/me', {
-        headers: {
-          Authorization: `Bearer ${accessToken.value}`,
-        },
-      })
-
-      console.log('Test token status:', response.status)
-      return response.ok
-    } catch (error) {
-      console.error('Test token error:', error)
-      return false
-    }
-  }
-
   // Forzar nuevo login para obtener scopes completos
   const forceNewLogin = () => {
     logout()
@@ -300,8 +281,8 @@ export const useSpotifyStore = defineStore('spotify', () => {
 
       // Filtrar tracks duplicados y mezclar
       const uniqueTracks = allTracks.filter(
-        (track: any, index: number, self: any[]) =>
-          index === self.findIndex((t: any) => t.id === track.id),
+        (track: SpotifyApi.TrackObjectFull, index: number, self: SpotifyApi.TrackObjectFull[]) =>
+          index === self.findIndex((t: SpotifyApi.TrackObjectFull) => t.id === track.id),
       )
 
       recommendations.value = uniqueTracks.slice(0, limit)
@@ -380,44 +361,6 @@ export const useSpotifyStore = defineStore('spotify', () => {
     // Seleccionar aleatoriamente 4 términos para variar las búsquedas
     const shuffled = allTerms.sort(() => 0.5 - Math.random())
     return shuffled.slice(0, 4)
-  }
-
-  // Configuración de estados de ánimo (mantenido para compatibilidad)
-  const getMoodConfiguration = (mood: string) => {
-    const configs: Record<string, SpotifyApi.RecommendationsOptionsObject> = {
-      feliz: {
-        target_valence: 0.8,
-        target_energy: 0.8,
-        target_tempo: 120,
-        target_danceability: 0.8,
-      },
-      triste: {
-        target_valence: 0.2,
-        target_energy: 0.3,
-        target_tempo: 80,
-        target_danceability: 0.3,
-      },
-      energético: {
-        target_energy: 0.9,
-        target_tempo: 140,
-        target_danceability: 0.9,
-        target_valence: 0.7,
-      },
-      relajado: {
-        target_energy: 0.3,
-        target_tempo: 70,
-        target_danceability: 0.4,
-        target_valence: 0.6,
-      },
-      nostálgico: {
-        target_valence: 0.5,
-        target_energy: 0.5,
-        target_tempo: 100,
-        target_danceability: 0.6,
-      },
-    }
-
-    return configs[mood] || configs.feliz
   }
 
   // Crear playlist automática
