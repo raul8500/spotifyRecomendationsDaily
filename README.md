@@ -135,24 +135,6 @@ npm run lint
 npm run format
 ```
 
-## 🎨 Personalización
-
-### Colores
-
-Los colores de Spotify están disponibles como clases de Tailwind:
-
-- `bg-spotify-green` - Verde oficial de Spotify
-- `bg-spotify-black` - Negro oficial de Spotify
-- `bg-spotify-white` - Blanco oficial de Spotify
-
-### Componentes
-
-Puedes usar las clases de utilidad predefinidas:
-
-- `.btn-primary` - Botón principal
-- `.btn-secondary` - Botón secundario
-- `.card` - Tarjeta con hover
-- `.input-field` - Campo de entrada
 
 ## 🔒 Seguridad
 
@@ -161,31 +143,6 @@ Puedes usar las clases de utilidad predefinidas:
 - Uso de OAuth 2.0 para autenticación segura
 - Permisos mínimos necesarios para la funcionalidad
 
-## 🚀 Despliegue
-
-### Vercel
-
-1. Conecta tu repositorio a Vercel
-2. Configura las variables de entorno en el dashboard
-3. Actualiza la URL de redirección en Spotify Developer Dashboard
-
-### Netlify
-
-1. Conecta tu repositorio a Netlify
-2. Configura las variables de entorno
-3. Actualiza la URL de redirección en Spotify Developer Dashboard
-
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
 ## 🆘 Soporte
 
